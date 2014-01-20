@@ -13,11 +13,10 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.drive.safe.glass.analytics.APIKeys;
-import com.drive.safe.glass.bluetooth.BluetoothManager;
 import com.flurry.android.FlurryAgent;
 import com.google.android.glass.media.Sounds;
 
@@ -50,6 +49,9 @@ public class KeepAwakeAlertActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 		setContentView(R.layout.card_alert);
 
