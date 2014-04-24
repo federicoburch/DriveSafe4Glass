@@ -5,7 +5,7 @@
 
 *Drive Safe* uses the eye sensor and the accelerometer to determine if you're falling asleep. If so, an alert is played and with one tap, you can get directions to a rest area.
 
-More features coming soon!
+Now updated for XE16!
 
 ## How to Install ##
 Sideload the app on Glass: [download here](https://github.com/victorkp/DriveSafe4Glass/blob/master/DriveSafe4Glass.apk?raw=true)

@@ -26,7 +26,6 @@ import com.drive.safe.glass.view.LiveCardDrawer;
 import com.flurry.android.FlurryAgent;
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.LiveCard.PublishMode;
-import com.google.android.glass.timeline.TimelineManager;
 
 public class KeepAwakeService extends Service implements SleepDetector.SleepListener {
 	private static final String TAG = "KeepAwakeService";
@@ -76,7 +75,6 @@ public class KeepAwakeService extends Service implements SleepDetector.SleepList
 	private SleepDetector mSleepDetector;
 
 	private LiveCard mLiveCard;
-	private TimelineManager mTimeline;
 
 	private LiveCardDrawer mLiveCardDrawer;
 
@@ -99,7 +97,6 @@ public class KeepAwakeService extends Service implements SleepDetector.SleepList
 		super.onCreate();
 		mContext = this;
 
-		mTimeline = TimelineManager.from(mContext);
 		mLiveCardDrawer = new LiveCardDrawer(mContext);
 
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -139,7 +136,7 @@ public class KeepAwakeService extends Service implements SleepDetector.SleepList
 		if (mLiveCard == null) {
 			// Create the live card and publish it
 
-			mLiveCard = mTimeline.createLiveCard(CARD_TAG);
+			mLiveCard = new LiveCard(mContext, CARD_TAG);
 
 			// Setup the drawing of the card
 			mLiveCard.setDirectRenderingEnabled(true);
